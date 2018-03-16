@@ -2,9 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Register User</title>
+    <title>LogIn page</title>
 </head>
 <body>
+
 {% extends "base.html" %}
 
 {% block content %}
@@ -12,7 +13,7 @@
  <form action = "#" method="post">
      {% csrf_token %}
      {{form.as_p}}
-     <input type="submit" value="Register">
+     <input type="submit" value="Log in">
  </form>
 
 {% endblock %}

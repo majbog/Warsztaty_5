@@ -6,9 +6,19 @@ class SignInForm(forms.ModelForm):
 
     class Meta:
         model = User
-        fields = ['first_name', 'last_name', 'email', 'password']
+        fields = ['username', 'first_name', 'last_name', 'email', 'password']
         widgets = {
                 'password': forms.PasswordInput()
             }
+        help_texts = {
+            'username': "(max. 20 letters/digits/special characters)"
+        }
 
 
+class LogInForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = ['email', 'password']
+        widgets = {
+            'password': forms.PasswordInput()
+        }
