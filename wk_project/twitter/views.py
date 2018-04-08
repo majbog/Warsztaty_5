@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth import authenticate
-from django.contrib.auth.views import login, logout
+from django.contrib.auth import login
 
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
@@ -60,11 +60,14 @@ class LogInView(View):
         if form.is_valid():
             email = form.cleaned_data['email']
             password = form.cleaned_data['password']
-            user = authenticate(username=User.objects.get(email=email), password=password)
+            user = authenticate(username=User.objects.get(email=email).username, password=password)
             if user is not None:
                 login(request, user)
                 return redirect('main')
             else:
+                ctx = {
+                    'form': form
+                }
                 return render(request, "login.html", ctx)
 
 
