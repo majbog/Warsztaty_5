@@ -10,6 +10,7 @@ from django.views.generic import CreateView
 
 # Create your views here.
 from .forms import SignInForm, LogInForm
+from .models import Message, Comment, Following
 
 
 class SignInView(View):
@@ -71,5 +72,10 @@ class LogInView(View):
                 return render(request, "login.html", ctx)
 
 
-class AllOinksView(View):
-    pass
+class AllMsgsView(View):
+    def get(self, request):
+        all_msgs = Message.objects.all().order_by('-date')
+        ctx={
+            'all_msgs': all_msgs
+        }
+        return render(request, "all_msgs.html", ctx)

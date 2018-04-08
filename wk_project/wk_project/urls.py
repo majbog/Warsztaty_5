@@ -16,11 +16,11 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from django.urls import path
-from twitter.views import SignInView, LogInView, AllOinksView
+from twitter.views import SignInView, LogInView, AllMsgsView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    url(r'^/$', AllOinksView.as_view(), name='all-oinks'),
+    url(r'^/$', AllMsgsView.as_view(), name='main'),
     url(r'^register/$', SignInView.as_view(), name='sign-in'),
     url(r'^login/$', LogInView.as_view(), name='login')
 

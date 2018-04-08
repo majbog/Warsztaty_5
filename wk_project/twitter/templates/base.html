@@ -5,6 +5,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'twitter_styles.css' %}"/>
+
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
@@ -37,6 +40,9 @@
                     <a class="nav-link" href="#"> Messages <span class="badge">4</span> </a>
                   </li>
                   <li class="nav-item">
+                    <a class="nav-link" href="#"> Followed </a>
+                  </li>
+                  <li class="nav-item">
                     <a class="nav-link" href="#">LogOut</a>
                   </li>
                 </ul>
@@ -57,6 +63,8 @@
     {% block content %}
 
     {% endblock %}
+
+
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

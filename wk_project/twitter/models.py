@@ -7,7 +7,7 @@ from django.db import models
 class Message(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     text = models.TextField(max_length=250)
-    date= models.DateField()
+    date = models.DateField()
 
 class Comment(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -17,7 +17,7 @@ class Comment(models.Model):
 
 class Following(models.Model):
     follower = models.OneToOneField(User, on_delete=models.CASCADE)
-    followed = models.ManyToManyField(User, related_name="followed_uder")
+    followed = models.ManyToManyField(User, related_name="followed_user")
 
 
 
