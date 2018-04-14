@@ -20,7 +20,7 @@ from twitter.views import SignInView, LogInView, AllMsgsView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    url(r'^/$', AllMsgsView.as_view(), name='main'),
+    url(r'^$', AllMsgsView.as_view(), name='main'),
     url(r'^register/$', SignInView.as_view(), name='sign-in'),
     url(r'^login/$', LogInView.as_view(), name='login')
 

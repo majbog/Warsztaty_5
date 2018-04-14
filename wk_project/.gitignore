@@ -38,7 +38,9 @@ w5env/
 !.vscode/launch.json
 !.vscode/extensions.json
 
-# End of https://www.gitignore.io/api/python,visualstudiocode
+
 
 .idea/
 *.pyc
+
+# End of https://www.gitignore.io/api/python,visualstudiocode
