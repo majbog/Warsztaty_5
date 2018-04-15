@@ -1,3 +1,32 @@
 body{
-	background-color: #447e9b;
+	background-color: #e0e0e0;
+}
+
+.msg_outer{
+	width: 500px;
+	height: auto;
+	border: 1px solid;
+	margin-top: 10px;
+}
+
+.msg_text{
+	margin-left: 50px;
+}
+
+.msg_date{
+	color: #444444;
+}
+
+.msg_author{
+	font-weight: bolder;
+}
+
+.msg_details{
+	margin-left: 10px;
+}
+
+.comm_icon{
+	width: 20px;
+	margin-left: 10px;
+	padding-bottom: 10px;
 }

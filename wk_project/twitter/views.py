@@ -5,11 +5,14 @@ from django.contrib.auth import login
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
+from django.urls import reverse_lazy
 from django.views import View
 from django.views.generic import CreateView
 
+import datetime
+
 # Create your views here.
-from .forms import SignInForm, LogInForm
+from .forms import SignInForm, LogInForm, NewCommFrom
 from .models import Message, Comment, Following
 
 
@@ -79,3 +82,27 @@ class AllMsgsView(View):
             'all_msgs': all_msgs
         }
         return render(request, "all_msgs.html", ctx)
+
+
+class NewCommentView(View):
+    def get(self, request, msg_id):
+        current_user = request.user
+        form = NewCommFrom(
+            initial={
+                'author': current_user,
+                'date': datetime.datetime.now().strftime('%Y-%m-%d'),
+                'reference': Message.objects.get(id=msg_id)
+            }
+        )
+        msg = Message.objects.get(id=msg_id)
+        ctx = {
+            'form': form,
+            'msg': msg
+        }
+        return render(request, 'new_comm_form.html', ctx)
+    def post(self, request):
+        form = NewCommFrom(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('main')
+

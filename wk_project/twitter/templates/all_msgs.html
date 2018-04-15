@@ -2,7 +2,26 @@
 
 {% block content %}
 
+{% load static %}
 
+{% for msg in all_msgs %}
+
+<div class="msg_outer">
+    <p class="msg_details">
+        <span class="msg_author">{{msg.author}}</span>, on <span class="msg_date">{{msg.date}}</span>
+    </p>
+    <div class="msg_text">
+        {{msg.text}}
+    </div>
+
+    <div class="msg_actions">
+
+        <a href="{% url 'new-comment' msg.id %}"><img src="{% static 'comm.png' %}" alt="logo" class="comm_icon"></a>
+    </div>
+
+</div>
+
+{% endfor %}
 
 
 {% endblock %}

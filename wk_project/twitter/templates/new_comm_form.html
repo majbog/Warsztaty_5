@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="msg_outer">
+    <p class="msg_details">
+        <span class="msg_author">{{msg.author}}</span>, on <span class="msg_date">{{msg.date}}</span>
+    </p>
+    <div class="msg_text">
+        {{msg.text}}
+    </div>
+</div>
+
+ <form action="#" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type = "submit" value="Add new Comment">
+ </form>
+
+{% endblock %}
