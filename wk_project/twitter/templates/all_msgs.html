@@ -17,6 +17,7 @@
     <div class="msg_actions">
 
         <a href="{% url 'new-comment' msg.id %}"><img src="{% static 'comm.png' %}" alt="logo" class="comm_icon"></a>
+        <a href="{% url 'follow-user' msg.author.pk %}"><img src="{% static 'follow.png' %}" alt="logo" class="follow_icon"></a>
     </div>
 
 </div>

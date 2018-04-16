@@ -30,3 +30,9 @@ body{
 	margin-left: 10px;
 	padding-bottom: 10px;
 }
+
+.follow_icon{
+	width: 30px;
+	display: inline-block;
+	padding-bottom: 10px;
+}

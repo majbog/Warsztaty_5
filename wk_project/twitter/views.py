@@ -109,3 +109,6 @@ class NewCommentView(View):
             Comment.objects.create(author=author, text=text, date=date, reference=Message.objects.get(id=msg_id))
             return redirect('main')
 
+
+class FollowUserView(View):
+    pass
