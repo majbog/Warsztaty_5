@@ -100,9 +100,12 @@ class NewCommentView(View):
             'msg': msg
         }
         return render(request, 'new_comm_form.html', ctx)
-    def post(self, request):
+    def post(self, request, msg_id):
         form = NewCommFrom(request.POST)
         if form.is_valid():
-            form.save()
+            text = form.cleaned_data['text']
+            author = form.cleaned_data['author']
+            date = form.cleaned_data['date']
+            Comment.objects.create(author=author, text=text, date=date, reference=Message.objects.get(id=msg_id))
             return redirect('main')
 

@@ -28,4 +28,10 @@ class LogInForm(forms.ModelForm):
 class NewCommFrom(forms.ModelForm):
     class Meta:
         model = Comment
-        fields = ('text',)
+        fields = '__all__'
+        widgets = {
+            "author": forms.HiddenInput,
+            "date": forms.HiddenInput,
+            "reference": forms.HiddenInput,
+
+        }
