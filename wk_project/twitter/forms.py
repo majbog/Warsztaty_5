@@ -24,6 +24,16 @@ class LogInForm(forms.ModelForm):
             'password': forms.PasswordInput()
         }
 
+class NewMessForm(forms.ModelForm):
+    class Meta:
+        model = Message
+        fields = '__all__'
+        widgets = {
+            "author": forms.HiddenInput,
+            "date": forms.HiddenInput,
+
+        }
+
 
 class NewCommFrom(forms.ModelForm):
     class Meta:

@@ -8,14 +8,15 @@ class Message(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     text = models.TextField(max_length=250)
     image = models.ImageField(null=True)
-
     date = models.DateField()
+
 
 class Comment(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     text = models.CharField(max_length=200)
     date = models.DateField()
     reference = models.ForeignKey(Message, on_delete=models.CASCADE)
+
 
 class Following(models.Model):
     follower = models.OneToOneField(User, on_delete=models.CASCADE)

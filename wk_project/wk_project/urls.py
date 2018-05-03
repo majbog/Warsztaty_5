@@ -16,7 +16,7 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from django.urls import path
-from twitter.views import SignInView, LogInView, AllMsgsView, NewCommentView, FollowUserView
+from twitter.views import SignInView, LogInView, AllMsgsView, NewMessView, NewCommentView, FollowUserView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -24,6 +24,7 @@ urlpatterns = [
     url(r'^register/$', SignInView.as_view(), name='sign-in'),
     url(r'^login/$', LogInView.as_view(), name='login'),
     url(r'^msg/(?P<msg_id>(\d+))/new-comment/$', NewCommentView.as_view(), name='new-comment'),
-    url(r'^user/(?P<user_id>(\d+))/follow', FollowUserView.as_view(), name='follow-user')
+    url(r'^user/(?P<user_id>(\d+))/follow', FollowUserView.as_view(), name='follow-user'),
+    url(r'^msg/new/$', NewMessView.as_view(), name='new-msg')
 
 ]
